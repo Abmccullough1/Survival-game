@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed = 100
 var player_state
-
+@export var Inventory: Inv
 func _physics_process(delta):
 	var direction = Input.get_vector("left","right","up","down")
 	
@@ -37,3 +37,6 @@ func play_animation(dir):
 		if dir.x < -0.5 and dir.y <-0.5:
 			$AnimatedSprite2D.play("northwest")
  
+func player():
+	pass
+	

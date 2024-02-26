@@ -1,7 +1,8 @@
-[gd_scene load_steps=61 format=3 uid="uid://bpg61kxibaniv"]
+[gd_scene load_steps=62 format=3 uid="uid://bpg61kxibaniv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_l0bx8"]
 [ext_resource type="Texture2D" uid="uid://bdigo113myipf" path="res://art/survivalgame-player-green.png" id="2_rfb51"]
+[ext_resource type="PackedScene" uid="uid://mrfratesvtbo" path="res://inventory/inv_ui.tscn" id="3_6cb56"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vlns3"]
 atlas = ExtResource("2_rfb51")
@@ -489,22 +490,28 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqplw"]
-radius = 3.16228
+radius = 7.0
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_l0bx8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-141, 76)
+position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_qcvq0")
-animation = &"walking-east"
+animation = &"idle-south"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-141, 77)
+position = Vector2(1, 2)
 shape = SubResource("CircleShape2D_hqplw")
 
+[node name="Inv_ui" parent="CollisionShape2D" instance=ExtResource("3_6cb56")]
+offset_left = 1.0
+offset_top = -46.0
+offset_right = 41.0
+offset_bottom = -6.0
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-140, 75)
+position = Vector2(3, 2)
 zoom = Vector2(4, 4)
 limit_left = -359
 limit_top = -154
